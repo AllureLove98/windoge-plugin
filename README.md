@@ -5,7 +5,7 @@
 ### 安装方法
 1. yunzai根目录运行以下命令
 ```
-git clone https://github.com/gxy12345/windoge-plugin.git ./plugins/windoge-plugin/
+git clone https://gitee.com/Ryota_Aoki/windoge-plugin-private.git ./plugins/windoge-plugin/
 ```
 2. 使用`pnpm install --filter=windoge-plugin` 或是 `npm install date-format`安装依赖
 
