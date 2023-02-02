@@ -14,7 +14,7 @@ export const render = async function (path, params, cfg) {
     elemLayout: layout_path + "elem.html",
     sys: {
       scale: Cfg.scale(cfg.scale || 1),
-      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> &  windoge-plugin<span class="version">${currentVersion}</span>`
+      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> & windoge-plugin<span class="version">${currentVersion} & @Xmmy</span>`
     }
   },"png");
  let ret = true
