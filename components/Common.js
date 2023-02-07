@@ -14,7 +14,7 @@ export const render = async function (path, params, cfg) {
     elemLayout: layout_path + "elem.html",
     sys: {
       scale: Cfg.scale(cfg.scale || 1),
-      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> & windoge-plugin<span class="version">${currentVersion} & @Xmmy</span>`
+      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> & windoge-plugin<span class="version">${currentVersion}</span> & @Xmmy`
     }
   },"png");
  let ret = true
@@ -36,7 +36,7 @@ export const render_path = async function (path, params, cfg,path_) {
     elemLayout: _layout_path + "elem.html",
     sys: {
       scale: Cfg.scale(cfg.scale || 1),
-      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> & windoge-plugin<span class="version">${currentVersion}</span>`
+      copyright: `Created By Yunzai-Bot<span class="version">${yunzaiVersion}</span> & windoge-plugin<span class="version">${currentVersion}</span> & @Xmmy`
     }
   });
  let ret = true
