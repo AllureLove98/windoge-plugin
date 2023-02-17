@@ -70,6 +70,7 @@ export async function OSCode(e) {
             msgData.push(val)
         })
         msgData.push("兑换码兑换网站: https://genshin.hoyoverse.com/zh-tw/gift")
+        msgData.push("可使用  #兑换码使用 123456789 或 #cdk-u 123456789 开始用兑换码")
         await utils.replyMake(e, msgData, 0)
         return true
     } else {
