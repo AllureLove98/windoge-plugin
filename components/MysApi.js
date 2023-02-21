@@ -144,7 +144,7 @@ let MysApi = {
     let response = await fetch(url, { method, headers });
     if (!response.ok) {
       return await error(-1, {
-        msg: "米游社接口错误"
+        msg: "HoYoLAB接口错误"
       })
     }
     let res = await response.json();

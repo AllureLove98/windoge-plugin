@@ -71,7 +71,7 @@ export async function Note(e, {
 		}
 		const response = await getDailyNote(uid, cookie);
 		if (!response.ok) {
-			e.reply("米游社接口错误");
+			e.reply("HoYoLAB接口错误");
 			return true;
 		}
 		res = await response.json();
@@ -88,7 +88,7 @@ export async function Note(e, {
 		if (res.retcode != 0) {
 			if (res.message == "Please login") {
 				Bot.logger.mark(`体力cookie已失效`);
-				e.reply(`体力cookie已失效，请重新配置\n注意：退出米游社登录cookie将会失效！`);
+				e.reply(`体力cookie已失效，请重新配置\n注意：退出HoYoLAB登录cookie将会失效！`);
 				if (NoteCookie[e.user_id]) {
 					// await MysUser.delNote(NoteCookie[e.user_id]);
 					delete NoteCookie[e.user_id];
