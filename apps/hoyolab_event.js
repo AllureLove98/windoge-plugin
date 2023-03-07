@@ -11,6 +11,7 @@ import utils from "./utils.js";
 const _path = process.cwd();
 const HoyolabEventListApiUrl = "https://bbs-api-os.hoyolab.com/community/community_contribution/wapi/event/list?gids=2&size=15"
 const HoyolabWebHost = "https://www.hoyolab.com"
+const Original = "https://www.hoyolab.com"
 const reqHeaders = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
     "x-rpc-client_type": 4,
@@ -147,7 +148,7 @@ export async function checkEvent(e) {
                 descContent = `${descContent.substring(0, 72)}...`
             }
             msg += `${descContent}\n`
-            msg += `${HoyolabWebHost}${event.event_detail.web_path}`
+            msg += `${Original}${event.event_detail.web_path}`
             if (event.event_type.includes('Twitch')) {
                 msg += "\nTwitch直播活动参加指南: https://docs.qq.com/doc/DQ3hqQXp4V21idUZJ"
             }
