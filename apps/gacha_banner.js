@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import YAML from 'yaml'
+import moment from 'moment'
 import Common from "../components/Common.js";
 import { Cfg } from "../components/index.js";
 import { isV3 } from "../components/Changelog.js";
@@ -7,18 +8,18 @@ import { isV3 } from "../components/Changelog.js";
 const _path = process.cwd();
 const res_layout_path = `/plugins/windoge-plugin/resources/common/layout/`;
 const character_banner_data_url = [
-    "https://raw.fastgit.org/gxy12345/windoge-plugin/main/config/banner/character.json",
+    "https://raw.githubusercontent.com/gxy12345/windoge-plugin/main/config/banner/character.json",
     "https://raw.fastgit.org/KeyPJ/genshin-gacha-banners/master/public/data/character.json",
     "https://raw.githubusercontent.com/KeyPJ/genshin-gacha-banners/master/public/data/character.json",
     "https://genshin-gacha-banners.52v6.com/data/character.json",
 ]
 const weapon_banner_data_url = [
-    "https://raw.fastgit.org/gxy12345/windoge-plugin/main/config/banner/weapon.json",
+    "https://raw.githubusercontent.com/gxy12345/windoge-plugin/main/config/banner/weapon.json",
     "https://raw.fastgit.org/KeyPJ/genshin-gacha-banners/master/public/data/weapon.json",
     "https://raw.githubusercontent.com/KeyPJ/genshin-gacha-banners/master/public/data/weapon.json",
     "https://genshin-gacha-banners.52v6.com/data/weapon.json",
 ]
-const weapon_nickname_data_url = "https://raw.fastgit.org/Nwflower/Atlas/master/resource/othername/weapon.yaml"
+const weapon_nickname_data_url = "https://raw.githubusercontent.com/Nwflower/Atlas/master/resource/Forlibrary/Genshin-Atlas/othername/weapon.yaml"
 
 const character_data_api = "https://info.minigg.cn/characters?query="
 const weapon_data_api = "https://info.minigg.cn/weapons?query="
@@ -167,6 +168,7 @@ async function getSingleItemBanner(name, is_character = true) {
     }
     let pickUpGacha = banner_data[item_index];
     let item_info = pickUpGacha.items.find(item => item.name == name)
+    let days = Math.floor(moment.duration(moment().diff(moment(pickUpGacha.end))).asDays())
     item_info.imageUrl = `https://upload-bbs.mihoyo.com/${item_info.imageUrl}`
     return {
         name: name,
@@ -177,6 +179,7 @@ async function getSingleItemBanner(name, is_character = true) {
             index: pickUpGacha.version.substr(pickUpGacha.version.length - 1, 1) === "1" ? "上半" : "下半",
             start: pickUpGacha.start,
             end: pickUpGacha.end,
+            days: days,
         },
         item_info: item_info
     }
