@@ -11,8 +11,8 @@ const _path = process.cwd();
 
 const collection_url = "https://bbs-api.mihoyo.com/post/wapi/getPostFullInCollection?&gids=2&order_type=2&collection_id="
 const collection_ids = {
-    'material': [1845635, 1902839],
-    'character': [701708]
+    'material': [1845635, 1902839, 595794],
+    'character': [701708, 17465]
 }
 
 let Botcfg;
@@ -32,6 +32,10 @@ async function getData(url) {
 }
 
 export async function MaterialRoute(e) {
+    // 防止拦截米游社查询命令
+    if (/米游社/.test(e.msg)) {
+        return false
+    }
     let match = /^#?(.+)(收集|采集|讨伐|收集路线|采集路线|讨伐路线)$/.exec(e.msg)
     let material_name = match[1]
     if (/突破|养成|培养/.test(material_name)) {
@@ -55,6 +59,10 @@ export async function MaterialRoute(e) {
 }
 
 export async function CharMaterialRoute(e) {
+    // 防止拦截米游社查询命令
+    if (/米游社/.test(e.msg)) {
+        return false
+    }
     let match = /^#?(.+)(培养|突破|养成)(素材|材料)?收集$/.exec(e.msg)
     let char_name = match[1]
     Bot.logger.debug(char_name)
