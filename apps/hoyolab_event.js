@@ -4,7 +4,7 @@ import {
     Cfg,
     Data
 } from "../components/index.js";
-import utils from "./utils.js";
+import common from '../../../lib/common/common.js'
 import yunzaicfg from "../../../lib/config/config.js";
 import HttpsProxyAgent from "https-proxy-agent";
 
@@ -188,7 +188,8 @@ export async function checkEvent(e) {
         }
     }
     if (needMakeMsg) {
-        await utils.replyMake(e, msgData, 0)
+        let fwdMsgs = await common.makeForwardMsg(e, msgData, msgData[0])
+        e.reply(fwdMsgs)
     } else {
         e.reply(msg)
     }
