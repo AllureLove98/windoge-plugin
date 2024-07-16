@@ -10,7 +10,7 @@ import HttpsProxyAgent from "https-proxy-agent";
 
 
 const _path = process.cwd();
-const HoyolabEventListApiUrl = "https://bbs-api-os.hoyolab.com/community/community_contribution/wapi/event/list?gids=2&size=15"
+const HoyolabEventListApiUrl = "https://bbs-api-os.xmmy.eu.org/community/community_contribution/wapi/event/list?gids=2&size=15"
 const HoyolabWebHost = "https://www.hoyolab.com"
 const Original = "https://www.hoyolab.com"
 const reqHeaders = {
@@ -20,7 +20,7 @@ const reqHeaders = {
     "x-rpc-show-translated": true,
 }
 
-async function getProxy () {
+async function getProxy() {
     let proxyAddress = yunzaicfg.bot.proxyAddress
     if (!proxyAddress) return null
     if (proxyAddress === 'http://0.0.0.0:0') return null
@@ -28,11 +28,11 @@ async function getProxy () {
     return new HttpsProxyAgent(proxyAddress)
 }
 
-async function getEvent(moreEvent=false) {
+async function getEvent(moreEvent = false) {
     const redisKey = "windoge:hoyolab:event"
     let cacheData = await redis.get(redisKey)
     if (cacheData) {
-      return JSON.parse(cacheData)
+        return JSON.parse(cacheData)
     }
     let param = {
         headers: reqHeaders,
@@ -89,7 +89,7 @@ async function getEvent(moreEvent=false) {
                 }
             )
         }
-        
+
         // 直播活动报名结束时间，一般为开始时间后7天
         if (/Twitch创作者成长营|Twitch直播/.test(val.name) && val.end >= now) {
             if (Bot?.logger?.mark) {
@@ -158,7 +158,7 @@ export async function checkEvent(e) {
     let msg = ""
     let msgData = []
 
-    if (eventList.length == 0){
+    if (eventList.length == 0) {
         msg = "暂时未查询到hoyolab活动"
     } else {
         let descContent = ""
