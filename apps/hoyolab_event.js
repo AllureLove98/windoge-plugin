@@ -10,7 +10,7 @@ import HttpsProxyAgent from "https-proxy-agent";
 
 
 const _path = process.cwd();
-const HoyolabEventListApiUrl = "https://bbs-api-os.xmmy.eu.org/community/community_contribution/wapi/event/list?gids=2&size=15"
+const HoyolabEventListApiUrl = "https://genshinimpact.api.xmmy.eu.org/community/community_contribution/wapi/event/list?gids=2&size=15"  //hostRecord
 const HoyolabWebHost = "https://www.hoyolab.com"
 const Original = "https://www.hoyolab.com"
 const reqHeaders = {
